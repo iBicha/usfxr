@@ -15,9 +15,14 @@ public class SfxrSoundPlayer : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    public async void GenerateSoundClip()
+    public async void GenerateSoundClipAsync()
     {
-        audioSource.clip = await SfxrSynthesizer.GenerateSound(soundAsset, CancellationToken.None);
+        audioSource.clip = await SfxrSynthesizer.GenerateSoundAsync(soundAsset, CancellationToken.None);
+    }
+
+    public void GenerateSoundClip()
+    {
+        audioSource.clip = SfxrSynthesizer.GenerateSoundJob(soundAsset);
     }
 
     public void GenerateSoundClipAndPlay(ulong delay = 0UL)

@@ -6,7 +6,7 @@ using UnityEngine;
  
 public class SfxrSynthesizer 
 {
-    public static async Task<AudioClip> GenerateSound(SfxrSoundAsset asset, CancellationToken cancellationToken)
+    public static async Task<AudioClip> GenerateSoundAsync(SfxrSoundAsset asset, CancellationToken cancellationToken)
     {
         var synth = new SfxrSynth();
         synth.parameters = asset;
@@ -23,4 +23,9 @@ public class SfxrSynthesizer
         return clip;
     }
     
+    public static AudioClip GenerateSoundJob(SfxrSoundAsset asset)
+    {
+        return SfxrJob.ScheduleAndExecute(asset);
+    }
+
 }

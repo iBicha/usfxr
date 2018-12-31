@@ -122,9 +122,18 @@ public class SfxrSoundAssetEditor : Editor
 
         if (differGenerate)
         {
+            GenerateSound();
+            if (differPlay)
+            {
+                PlayClip();
+            }
+
+            return;
+            
+            
             tokenSource?.Cancel();
             tokenSource = new CancellationTokenSource();
-            generateSoundTask = GenerateSound(tokenSource.Token);
+            generateSoundTask = GenerateSoundAsync(tokenSource.Token);
             await generateSoundTask;
             if (generateSoundTask.IsCompleted && !generateSoundTask.IsCanceled)
             {
@@ -143,11 +152,16 @@ public class SfxrSoundAssetEditor : Editor
 
     private Task generateSoundTask;
     
-    private async Task GenerateSound(CancellationToken token){           
-        clip = await SfxrSynthesizer.GenerateSound(soundAsset, token);
+    private async Task GenerateSoundAsync(CancellationToken token){           
+        clip = await SfxrSynthesizer.GenerateSoundAsync(soundAsset, token);
         CreateCachedEditor(clip, tyAudioClipInspector, ref clipEditor);
     }
     
+    private void GenerateSound(){           
+        clip = SfxrSynthesizer.GenerateSoundJob(soundAsset);
+        CreateCachedEditor(clip, tyAudioClipInspector, ref clipEditor);
+    }
+
     public override bool HasPreviewGUI()
     {
         return clipEditor != null;
