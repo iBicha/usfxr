@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79ebf15fcbc6c4200aa19fda23b37b11, type: 3}
+  m_Name: sfx
+  m_EditorClassIdentifier: 
+  waveType: 0
+  masterVolume: 0.768
+  attackTime: 0.884
+  sustainTime: 0.104
+  sustainPunch: 0.079
+  decayTime: 0.046
+  startFrequency: 0.959
+  minFrequency: 0
+  slide: 0.09
+  deltaSlide: 0.07
+  vibratoDepth: 0
+  vibratoSpeed: 0
+  changeAmount: 0.37
+  changeSpeed: 1
+  squareDuty: 0.3574693
+  dutySweep: 0.11646096
+  repeatSpeed: 0
+  phaserOffset: -1
+  phaserSweep: 0
+  lpFilterCutoff: 0.685
+  lpFilterCutoffSweep: 0.88
+  lpFilterResonance: 0.734
+  hpFilterCutoff: 0.037
+  hpFilterCutoffSweep: -0.93
+  changeRepeat: 0.485
+  changeAmount2: -0.83
+  changeSpeed2: 0
+  compressionAmount: 0.353
+  overtones: 0.61
+  overtoneFalloff: 0.303
+  bitCrush: 0
+  bitCrushSweep: -1
